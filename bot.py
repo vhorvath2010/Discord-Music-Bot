@@ -298,8 +298,10 @@ class VoiceSink(discord.AudioSink):
                         # Add to voice conversation history
                         self.bot.add_voice_transcript(text, user.id, datetime.now())
                         
-                        # Check for trigger phrase
-                        if "nester" in text.lower() and "spin" in text.lower() and "shit" in text.lower():
+                        # Check for trigger phrases
+                        text_lower = text.lower()
+                        if (("nester" in text_lower and "spin" in text_lower and "shit" in text_lower) or
+                            ("nester" in text_lower and "this thing work" in text_lower)):
                             logger.info(f"Voice command detected from {user}")
                             # Schedule the command handling in the event loop
                             asyncio.run_coroutine_threadsafe(
@@ -376,7 +378,7 @@ The bot listens to voice conversations and automatically plays songs!
 **How it works:**
 1. Use `/join` to connect the bot to your voice channel
 2. The bot will start listening to voice conversations
-3. When someone says: `"nester, spin that shit"` in voice chat
+3. When someone says: `"nester, spin that shit"` or `"nester, this thing work?"` in voice chat
 4. The bot scans recent voice conversation history
 5. Finds song titles mentioned and plays them automatically
 

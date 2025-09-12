@@ -19,7 +19,7 @@ The bot listens to voice conversations and automatically plays songs!
 **How it works:**
 1. Use `/join` to connect the bot to your voice channel
 2. The bot starts listening to voice conversations
-3. When someone says `"nester, spin that shit"` in voice chat
+3. When someone says `"nester, spin that shit"` or `"nester, this thing work?"` in voice chat
 4. The bot scans recent voice conversation history
 5. Finds song titles mentioned and plays them automatically
 
