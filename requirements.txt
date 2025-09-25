@@ -2,6 +2,3 @@ discord.py[voice]==2.6.2
 python-dotenv==1.1.1
 yt_dlp==2025.08.27
 validators==0.35.0
-SpeechRecognition==3.10.0
-pyaudio==0.2.11
-pydub==0.25.1
