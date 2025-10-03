@@ -129,6 +129,21 @@ async def join(interaction : discord.Interaction):
         await interaction.response.send_message(f"You aren't currently in a channel!")
 
 
+# Print the queue in the channel where the command was called
+@client.tree.command(name="queue")
+async def queue_command(interaction: discord.Interaction):
+    """ Print the queue in the channel where the command was called """
+    if not queue:
+        await interaction.response.send_message("Queue is empty.")
+        return
+
+    lines = []
+    for index, (audio_url, title) in enumerate(list(queue), start=1):
+        lines.append(f"{index}. {title} - {audio_url}")
+
+    message = "Queue:\n" + "\n".join(lines)
+    await interaction.response.send_message(message)
+    
 
 # Play audio track from specified URL
 @client.tree.command()
