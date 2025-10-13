@@ -138,8 +138,8 @@ async def queue_command(interaction: discord.Interaction):
         return
 
     lines = []
-    for index, (audio_url, title) in enumerate(list(queue), start=1):
-        lines.append(f"{index}. {title} - {audio_url}")
+    for index, (_audio_url, title) in enumerate(list(queue), start=1):
+        lines.append(f"{index}. {title}")
 
     message = "Queue:\n" + "\n".join(lines)
     await interaction.response.send_message(message)
